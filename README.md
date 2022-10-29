@@ -19,11 +19,15 @@ Using Python 3.9
 
 # Purpose 
 Assign Users to eachother in Giver-to-Receiver relationships for scenarios like: Gift Exchanges or Art Trades. 
-Robust enough to handle different object types for User. 
 Allows for modifications to posbible combinations, for things like: 
 - uses Exchange history for limiting assignment options
 - compatability of how likely a user is to be assigned to another
 - flat out restrictions to other users (ex: no users can be assigned someone on the same team)
+
+# Outside of Scope 
+- Managing assignment *history*, such as:
+    - adding the results to the history: accepting or rejecting the results is determined outside this module
+	- managing the unique ID's of the user in the history. (Ex: if the user ID's change in anyway)
 
 # How to Run
 1. Install python
@@ -36,12 +40,6 @@ Allows for modifications to posbible combinations, for things like:
 
 Specific examples are in the test cases.
 
-
-# Outside of Scope 
-- Managing assignment *history*, such as:
-    - adding the results to the history: accepting or rejecting the results is determined outside this module
-	- managing the unique ID's of the user in the history. (Ex: if the user ID's change in anyway)
- 
 # Input 
 **Note**: Only *users* is a required field
 ## 1. users
