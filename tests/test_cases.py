@@ -25,7 +25,7 @@ test_user_history = [
 	{9:9}
 ]
 
-sufficient_test_count = 100
+sufficient_test_count = 1000
 
 # This method compares two dictionaries to make sure they are "the same"
 # Since I can't compare two dictionaries using the __equals__ dunder method
@@ -308,8 +308,8 @@ class Test_Processing(unittest.TestCase):
 				test_against = {0:2, 1:0, 2:3, 3:1}
 			self.assertTrue(
 				DictDiffTest(results, test_against),
-				msg=f'failed to properly restrict users, '
-					+ ' among new_test_users, given f{restrictionFunc}'
+				msg='failed to properly restrict users, '
+					+ f' among new_test_users, given {restrictionFunc}'
 				)
 
 
