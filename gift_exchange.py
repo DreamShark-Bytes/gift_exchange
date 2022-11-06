@@ -160,7 +160,7 @@ def GiftExchange (
 	#	where x == historyLimit
 	
 	# Create a list of empty lists, one for each user to represent their
-	# prior trades. 
+	# prior exchanges. 
 	giverHistory = [ [] for _ in enumerate(users) ]
 	
 	if historyLimit >0:
@@ -175,16 +175,15 @@ def GiftExchange (
 		logging.info(' ----- Building History')
 		for i_hist, historicExchange in enumerate(history):
 			logging.info(f' -- Exchange [{i_hist}] : {historicExchange}')
+			# Doing this instead of Enumerate because we're changing
+			#	the size of the dictionary mid-iteration, which 
+			#	causes an error otherwise
 			for i_user in list(giversNeedingHistory): # Get's the dict keys
-				
-				# Doing this instead of Enumerate because we're changing
-				#	the size of the dictionary mid-iteration, which 
-				#	causes an error otherwise
 				userID = giversNeedingHistory[i_user]
 				logging.info(f'checking user {userID=}, inx={i_user}') 
 				if userID in historicExchange.keys():
-					# Check if the recipient of the trade is in the current 
-					# list of users 
+					# Check if the recipient of the prior exchange is in  
+					# list of users for the current exchange
 					recipientID = historicExchange[userID]
 					try: 
 						recipient_in_current_users = userIDs.index(recipientID)
